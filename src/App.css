@@ -1,0 +1,225 @@
+body{
+  background: #e9ecf4;
+}
+
+:root {
+	--verde: #2a9d8f;
+	--azul: #264653;
+}
+
+.contenido{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2,1fr);
+	width: 98%;
+  max-width: 1000px;
+  margin: 20px auto;
+	height: 100%;
+	max-height: 85vh;
+}
+
+.contenido .sidebar,
+.contenido .contenedor{
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.contenedor {
+	width: 98%;
+  max-width: 1000px;
+  height: 100%;
+  min-height: 85vh;
+	overflow: auto;
+	box-shadow: 0 2px 10px rgba(139,139,139,.25);
+	border-radius: 3px;
+	display: grid;
+	grid-template-rows: auto auto 2fr;
+}
+
+/* * --- --- ---  GRID --- --- --- */
+.contenido .sidebar{
+  background: #12203e;
+  color: #fff;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 1/3;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 98%;
+  min-height: 100px;
+}
+
+.contenido .contenedor{
+  grid-column: span 3;
+  height: 750px;
+  min-height: 700px;
+}
+
+@media screen and (max-width: 768px){
+  .contenido .sidebar{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row: 1/1;
+  }
+  .contenido .contenedor{
+    grid-column: span 4;
+  }
+}
+
+/* * --- --- ---  HEADER --- --- --- */
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 20px;
+  background: var(--azul);
+  color: #fff;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.header__titulo{
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.header__boton{
+  background: none;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  background: #457b9d;
+  padding: 5px 10px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.header__icono-boton{
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+/* * --- --- ---  FORMULARIO y AGREGAR--- --- --- */
+.formulario-tareas{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(139,139,139,.25);
+}
+
+.formulario-tareas__input{
+  border: none;
+  padding: 15px;
+  width: 100%;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  border-bottom: 2px solid #b8b8b8;
+}
+
+.formulario-tareas__input:focus{  
+  outline: none;
+  border-bottom: 2px solid var(--azul);
+}
+
+.formulario-tareas__boton{
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.formulario-tareas__icono{
+  font-size: 22px;
+  color: var(--verde);
+}
+
+.formulario-tareas__icono:hover{
+  color: var(--azul);
+}
+
+/* * --- --- ---  LISTA TAREAS --- --- --- */
+
+.lista-tareas{
+  list-style: none;
+  height: 100%;
+  overflow: auto;
+}
+
+.lista-tareas__tarea{
+  height: 60px;
+  padding: 0 20px;
+  align-items: center;
+  color: #264653;
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+
+.lista-tareas__texto{
+  text-align: left;
+  width: 100%;
+}
+
+.lista-tareas__tarea:hover .lista-tareas__icono-accion{
+  opacity: 0.5;
+}
+
+.lista-tareas__tarea:nth-child(even){
+  background: #f3f3f3;
+}
+
+.lista-tareas__icono{
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.lista-tareas__icono-check{
+  margin-right: 20px;
+  font-size: 26px;
+}
+
+.lista-tareas__icono-accion{
+  margin-left: 20px;
+  opacity: 0;
+  transition: .3s ease all;
+}
+
+.lista-tareas__mensaje{
+  text-align: center;
+  color: #b8b8b8;
+  font-size: 20px;
+  padding: 40px 20px;
+}
+
+/* * --- --- ---  LISTA TAREAS --- --- --- */
+.formulario-editar-tarea{
+  display: flex;
+}
+
+.formulario-editar-tarea__input{
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #b8b8b8;
+  background: none;
+  font-size: 18px;
+}
+
+.formulario-editar-tarea__btn{
+  border: none;
+  background: var(--verde);
+  cursor: pointer;
+  color: #fff;
+  padding: 0 10px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 3px;
+}
